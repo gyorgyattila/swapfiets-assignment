@@ -1,9 +1,8 @@
 .bike-list-image {
   width: 100%;
-  height: 250px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  height: 100%;
   display: block;
+  object-fit: fill;
 }
 
 .card {

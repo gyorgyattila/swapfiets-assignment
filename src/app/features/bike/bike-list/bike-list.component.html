@@ -1,11 +1,10 @@
-<!-- Search Results -->
 @if(bikeList.length > 0) {
 <ul class="list-group w-100 mx-auto">
     @for (bike of bikeList; track bike.id) {
     <li class="list-group-item">
         <div class="card mb-3" style="max-width: 100%;" (click)="navigateToBikeDetails(bike.id)">
-            <div class="row card-container g-0 align-items-center">
-                <div class="col-md-4">
+            <div class="row card-container g-0 align-items-center h-100">
+                <div class="col-3 h-100">
                     <img [src]="bike.large_img || 'assets/images/no_image.png'"
                         class="bike-list-image img-fluid rounded-start" alt="Bike image">
                 </div>
@@ -17,7 +16,7 @@
                         <p class="card-text"><strong>Serial:</strong> {{ bike.serial || '-' }}</p>
                     </div>
                 </div>
-                <div class="col-md-3 text-end pe-3">
+                <div class="col-3 text-end pe-3">
                     <div class="card-body">
                         <span class="badge" [ngClass]="bikeStatusClassMap[bike.status] || 'text-secondary'">
                             {{ bike.status }}
