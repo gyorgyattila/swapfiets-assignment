@@ -17,4 +17,5 @@ export const BikeRoutes: Routes = [
     path: 'bikes/:id',
     component: BikeDetailsComponent,
   },
+  { path: '**', redirectTo: 'bikes' },
 ];
