@@ -29,7 +29,7 @@ export class BikeService {
 
   constructor() {}
 
-  private getBikeListItemsByLocation(
+  public getBikeListItemsByLocation(
     bikeSearchParams: BikeSearchParams
   ): Observable<BikeListItem[]> {
     return this.bikeFacadeService.getBikesByLocation(bikeSearchParams).pipe(

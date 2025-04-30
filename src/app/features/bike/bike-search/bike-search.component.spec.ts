@@ -8,9 +8,8 @@ describe('BikeSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BikeSearchComponent]
-    })
-    .compileComponents();
+      imports: [BikeSearchComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BikeSearchComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,13 @@ describe('BikeSearchComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(BikeSearchComponent);
+    fixture.detectChanges();
+    const input: HTMLInputElement =
+      fixture.nativeElement.querySelector('input');
+    expect(input.placeholder).toBe('Search for a city...');
   });
 });
