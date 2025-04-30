@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { forkJoin, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Bike, BikeSearchParams } from '../model/bike';
 import { GetBikeDto, SearchBikesDto } from '../dto/search-bike.dto';
 import { BikeCountDTO } from '../dto/bike-count.dto';

@@ -37,11 +37,15 @@ export interface BikeListItem {
 }
 
 export class BikeListResult {
-  bikeList: BikeListItem[];
+  bikeList: BikeListItem[] | null;
   currentPage: number = 1;
   maxCount: number = 0;
 
-  constructor(bikeList: BikeListItem[], currentPage: number, maxCount: number) {
+  constructor(
+    bikeList: BikeListItem[] | null,
+    currentPage: number,
+    maxCount: number
+  ) {
     this.bikeList = bikeList;
     this.currentPage = currentPage;
     this.maxCount = maxCount;

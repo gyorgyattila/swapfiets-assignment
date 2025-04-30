@@ -25,7 +25,7 @@ export class BikeService {
 
   private loading$ = new BehaviorSubject<boolean>(false);
   private bikeListResult$: BehaviorSubject<BikeListResult> =
-    new BehaviorSubject<BikeListResult>(new BikeListResult([], 1, 0));
+    new BehaviorSubject<BikeListResult>(new BikeListResult(null, 1, 0));
 
   constructor() {}
 

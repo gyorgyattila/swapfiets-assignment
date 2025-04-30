@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BikeListItem, bikeStatusClassMap } from '../../../core/model/bike';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NoResultComponent } from '../../../shared/components/no-result/no-result.component';
 
 @Component({
   selector: 'app-bike-list',
-  imports: [CommonModule],
+  imports: [CommonModule, NoResultComponent],
   templateUrl: './bike-list.component.html',
   styleUrl: './bike-list.component.scss',
   standalone: true,

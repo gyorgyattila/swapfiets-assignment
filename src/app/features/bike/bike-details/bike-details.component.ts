@@ -36,8 +36,4 @@ export class BikeDetailsComponent implements OnInit {
       });
   }
   ngOnInit(): void {}
-
-  get bike() {
-    return this.bikeDetails.asReadonly();
-  }
 }
