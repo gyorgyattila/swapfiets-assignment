@@ -1,36 +1,38 @@
-@if(bikeList.length > 0) {
-<ul class="list-group w-100 mx-auto">
-    @for (bike of bikeList; track bike.id) {
-    <li class="list-group-item">
-        <div class="card mb-3" style="max-width: 100%;" (click)="navigateToBikeDetails(bike.id)">
-            <div class="row card-container g-0 align-items-center h-100">
-                <div class="col-3 h-100">
-                    <img [src]="bike.large_img || 'assets/images/no_image.png'"
-                        class="bike-list-image img-fluid rounded-start" alt="Bike image">
-                </div>
-                <div class="col">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ bike.title }}</h5>
-                        <p class="card-text mb-1"><strong>Color:</strong> {{ bike.frame_colors.join(', ') || 'N/A' }}
-                        </p>
-                        <p class="card-text"><strong>Serial:</strong> {{ bike.serial || '-' }}</p>
+@if(bikeList) {
+    @if(bikeList.length > 0) {
+        <ul class="list-group w-100 mx-auto">
+            @for (bike of bikeList; track bike.id) {
+            <li class="list-group-item">
+                <div class="card mb-3" style="max-width: 100%;" (click)="navigateToBikeDetails(bike.id)">
+                    <div class="row card-container g-0 align-items-center h-100">
+                        <div class="col-3 h-100">
+                            <img [src]="bike.large_img || 'assets/images/no_image.png'"
+                                class="bike-list-image img-fluid rounded-start" alt="Bike image">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ bike.title }}</h5>
+                                <p class="card-text mb-1"><strong>Color:</strong> {{ bike.frame_colors.join(', ') || 'N/A' }}
+                                </p>
+                                <p class="card-text"><strong>Serial:</strong> {{ bike.serial || '-' }}</p>
+                            </div>
+                        </div>
+                        <div class="col-3 text-end pe-3">
+                            <div class="card-body">
+                                <span class="badge" [ngClass]="bikeStatusClassMap[bike.status] || 'text-secondary'">
+                                    {{ bike.status }}
+                                </span>
+                                <p class="mt-2 mb-0 text-muted small">
+                                    {{ bike.stolen_location || 'Unknown location' }}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-3 text-end pe-3">
-                    <div class="card-body">
-                        <span class="badge" [ngClass]="bikeStatusClassMap[bike.status] || 'text-secondary'">
-                            {{ bike.status }}
-                        </span>
-                        <p class="mt-2 mb-0 text-muted small">
-                            {{ bike.stolen_location || 'Unknown location' }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
+            </li>
+            }
+        </ul>
+    } @else {
+        <app-no-result [message]="'No bikes found'"></app-no-result>
     }
-</ul>
-} @else {
-    <app-no-result [message]="'No bikes found'"></app-no-result>
-}
+} 

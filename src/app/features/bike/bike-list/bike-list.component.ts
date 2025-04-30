@@ -13,7 +13,7 @@ import { NoResultComponent } from '../../../shared/components/no-result/no-resul
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BikeListComponent {
-  @Input() bikeList: BikeListItem[] = [];
+  @Input() bikeList: BikeListItem[] | null = [];
   bikeStatusClassMap = bikeStatusClassMap;
 
   constructor(private router: Router) {}
