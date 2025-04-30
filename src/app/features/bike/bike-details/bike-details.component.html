@@ -1,1 +1,22 @@
-<p>bike-details works!</p>
+<div class="container p-2">
+    @if(bikeDetails(); as bike) {
+    <span class="badge" [ngClass]="bikeStatusClassMap[bike.status] || 'text-secondary'">{{bike.status}}</span>
+    <div class="row d-felx flec-column">
+        <h1>{{bike.title}}</h1>
+        <p><strong>{{bike.status}}</strong> {{ bike.date_stolen * 1000 | date:'short' }} {{ bike.stolen_location }}</p>
+        <div class="column d-flex">
+            <div class="col-6">
+                <img src="{{bike.large_img}}" alt="no_image" class="w-100 vh-100" loading="lazy">
+            </div>
+            <div class="d-flex flex-column col-6 p-4 pt-0">
+                <h3>Details</h3>
+                <p><strong>Title:</strong> {{ bike.title }}</p>
+                <p><strong>Stolen Location:</strong> {{ bike.stolen_location }}</p>
+                <p><strong>Date Stolen:</strong> {{ bike.date_stolen * 1000 | date:'fullDate' }}</p>
+                <p><strong>Description:</strong> {{ bike.description || '-' }}</p>
+                <p><strong>Serial Number:</strong> {{ bike.serial }}</p>
+            </div>
+        </div>
+    </div>
+    }
+</div>
