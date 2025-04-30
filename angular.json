@@ -26,10 +26,9 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              
+                "src/assets",
+              "src/favicon.ico"
             ],
             "styles": [
               "node_modules/bootstrap/scss/bootstrap.scss",
@@ -38,7 +37,12 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": ["mixed-decls", "color-functions", "global-builtin", "import"]
+              }
+            }
           },
           "configurations": {
             "production": {
@@ -89,10 +93,8 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/assets",
+              "src/favicon.ico"
             ],
             "styles": [
               "src/styles.scss"

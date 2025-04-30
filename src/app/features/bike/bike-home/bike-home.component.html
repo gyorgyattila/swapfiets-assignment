@@ -1,2 +1,7 @@
-<app-bike-search></app-bike-search>
-<app-bike-list></app-bike-list>
+<div class="container text-center mt-4 d-flex flex-column align-items-center">
+    <div class="search-field w-50">
+        <app-bike-search (onSearchEvent)="onSearch($event)"></app-bike-search>
+
+    </div>
+    <app-bike-list [bikeList]="(bikeList$ | async) ?? []"></app-bike-list>
+</div>

@@ -1,1 +1,7 @@
-<p>bike-search works!</p>
+<!-- Search bar -->
+<div class="input-group mb-4 mt-4">
+    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchQuery" />
+    <button class="btn btn-outline-secondary" type="button" (click)="onSearch()">
+        <i class="bi bi-search"></i>
+    </button>
+</div>

@@ -12,11 +12,9 @@ export const BikeRoutes: Routes = [
   {
     path: 'bikes',
     component: BikeHomeComponent,
-    children: [
-      {
-        path: ':id',
-        component: BikeDetailsComponent,
-      },
-    ],
+  },
+  {
+    path: 'bikes/:id',
+    component: BikeDetailsComponent,
   },
 ];
