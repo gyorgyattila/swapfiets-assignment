@@ -11,11 +11,17 @@ export const BikeRoutes: Routes = [
   },
   {
     path: 'bikes',
-    component: BikeHomeComponent,
+    loadComponent: () =>
+      import('./bike-home/bike-home.component').then(
+        (m) => m.BikeHomeComponent
+      ),
   },
   {
     path: 'bikes/:id',
-    component: BikeDetailsComponent,
+    loadComponent: () =>
+      import('./bike-details/bike-details.component').then(
+        (m) => m.BikeDetailsComponent
+      ),
   },
   { path: '**', redirectTo: 'bikes' },
 ];
