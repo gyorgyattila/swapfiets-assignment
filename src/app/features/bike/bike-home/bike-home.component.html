@@ -1,7 +1,23 @@
 <div class="container text-center mt-4 d-flex flex-column align-items-center">
     <div class="search-field w-50">
         <app-bike-search (onSearchEvent)="onSearch($event)"></app-bike-search>
-
     </div>
-    <app-bike-list [bikeList]="(bikeList$ | async) ?? []"></app-bike-list>
+    @if((loading$ | async)) {
+    <ng-container *ngTemplateOutlet="loading"></ng-container>
+    } @else {
+        @if((bikeListResult$ | async); as bikeListResult) {
+        <app-bike-list [bikeList]="bikeListResult.bikeList"></app-bike-list>
+            @if(bikeListResult.maxCount > pageSize) {
+            <ngb-pagination [collectionSize]="bikeListResult.maxCount" [(page)]="bikeSearchParams.pageNumber"
+                [maxSize]="pageSize" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+                (pageChange)="changePage($event)" />
+            }
+        }
+    }
 </div>
+
+<ng-template #loading>
+    <div class="spinner-border text-primary mt-4" role="status">
+        <span class="sr-only"></span>
+    </div>
+</ng-template>

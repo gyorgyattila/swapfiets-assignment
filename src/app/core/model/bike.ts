@@ -36,6 +36,23 @@ export interface BikeListItem {
   title: string;
 }
 
+export class BikeListResult {
+  bikeList: BikeListItem[];
+  currentPage: number = 1;
+  maxCount: number = 0;
+
+  constructor(bikeList: BikeListItem[], currentPage: number, maxCount: number) {
+    this.bikeList = bikeList;
+    this.currentPage = currentPage;
+    this.maxCount = maxCount;
+  }
+}
+
+export interface BikeSearchParams {
+  location: string;
+  pageNumber: number;
+}
+
 export enum BikeStatus {
   STOLEN = 'stolen',
   FOUND = 'found',
